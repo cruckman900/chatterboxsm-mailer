@@ -40,19 +40,20 @@ function sendMail(action, email, userName, verificationCode, link) {
         emailBody = `
             <html>
                 <head></head>
-                <body>
-                    <div style="margin: 0 1rem; max-width: 600px">
-                        <p>Hello ${userName}</p>
-                        <p>
+                <body style='background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
+                    <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(33, 33, 33)'>
+                        <h1 style='color: rgb(255, 69, 0); font-weight: bold;'>ChatterboxSM</h1>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>
                             Please use the verification code below to 
                             verify your user account on chatterboxsm.com
                         </p>
-                        <p style="text-align: center; font-weight: bold">
-                            ${verificationCode}
+                        <p style='color: rgb(255, 69, 0); font-weight: bold; text-align: center;'>
+                            <code style='color: rgb(255, 120, 0); font-weight: bold;'>${verificationCode}</code>
                         </p>
                         <br />
-                        <p>Thank you.</p>
-                        <p>&copy;ChatterboxSM</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>Thank you.</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>&copy;ChatterboxSM</p>
                     </div>
                 </body>
             </html>
@@ -62,18 +63,19 @@ function sendMail(action, email, userName, verificationCode, link) {
         emailBody = `
             <html>
                 <head></head>
-                <body>
-                    <div style="margin: 0 1rem; max-width: 600px">
-                        <p>Hello ${userName}</p>
-                        <p>
+                <body style='background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
+                    <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(33, 33, 33);'>
+                    <h1 style='color: rgb(255, 69, 0); font-weight: bold;'>ChatterboxSM</h1>
+                    <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>
                             Please use the following link to reset your password.
                         </p>
-                        <p style="text-align: center; font-weight: bold">
-                            https://${link}?un=${userName}
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;; text-align: center;'>
+                            <code><a style='color: rgb(255, 120, 0); font-weight: bold;' href='https://${link}?un=${userName}'>Password Reset</a></code>
                         </p>
                         <br />
-                        <p>Thank you.</p>
-                        <p>Admin at &copy;ChatterboxSM</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>Thank you.</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>&copy;ChatterboxSM</p>
                     </div>
                 </body>
             </html>
