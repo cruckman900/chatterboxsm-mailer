@@ -30,9 +30,10 @@ app.get('/validateUser', function(req, res) {
     email = req.query.e;
     userName = req.query.un;
     verificationCode = req.query.vc;
+    response.send("params: " + email + ' ' + userName + verificationCode);
 })
 
-if ( template !== null && userName !== null )
+if ( template !== null && email !== null )
 ejs.renderFile(template, { userName: userName, verificationCode: verificationCode }, function (err, data) {
     if (err) {
         console.log(err);
