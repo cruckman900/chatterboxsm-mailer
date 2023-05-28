@@ -69,7 +69,7 @@ function sendMail(action, email, userName, verificationCode, link) {
                             Please use the following link to reset your password.
                         </p>
                         <p style="text-align: center; font-weight: bold">
-                            ${link}
+                            https://${link}?un=${userName}
                         </p>
                         <br />
                         <p>Thank you.</p>
