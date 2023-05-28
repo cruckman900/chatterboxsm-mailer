@@ -13,16 +13,25 @@ var server = http.createServer(function (req, res) {
     let action = q.action;
     let email = q.e;
     let userName = q.un;
-    let verificationCode = q.vc;
-    let url = q.url;
 
-    sendMail(action, email, userName, verificationCode, url);
+    let verificationCode = null;
+    let link = null;
+
+    if (q.vc) {
+        verificationCode = q.vc;
+    }
+
+    if (q.li) {
+        link = q.li;
+    }
+
+    sendMail(action, email, userName, verificationCode, link);
 
     res.write('I love you, Alexa!!');
     res.end();
 });
 
-function sendMail(action, email, userName, verificationCode, url) {
+function sendMail(action, email, userName, verificationCode, link) {
     let emailBody = null;
     let subject = null;
 
@@ -39,7 +48,7 @@ function sendMail(action, email, userName, verificationCode, url) {
                             verify your user account on chatterboxsm.com
                         </p>
                         <p style="text-align: center; font-weight: bold">
-                            https://chatterboxsm.com/${url}
+                            ${verificationCode}
                         </p>
                         <br />
                         <p>Thank you.</p>
@@ -60,7 +69,7 @@ function sendMail(action, email, userName, verificationCode, url) {
                             Please use the following link to reset your password.
                         </p>
                         <p style="text-align: center; font-weight: bold">
-                            ${verificationCode}
+                            ${link}
                         </p>
                         <br />
                         <p>Thank you.</p>
