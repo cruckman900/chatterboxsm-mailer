@@ -7,21 +7,27 @@ var nodemailer = require('nodemailer');
 
 var server = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
+
     var q = url.parse(req.url, true).query;
+
     let action = q.action;
     let email = q.e;
     let userName = q.un;
     let verificationCode = q.vc;
     let url = q.url;
+
     sendMail(action, email, userName, verificationCode, url);
+
     res.write('I love you, Alexa!!');
     res.end();
 });
 
 function sendMail(action, email, userName, verificationCode, url) {
     let emailBody = null;
+    let subject = null;
 
     if (action === 'verifyUser') {
+        subject = 'Please verify your ChatterboxSM account.'
         emailBody = `
             <html>
                 <head></head>
@@ -43,6 +49,7 @@ function sendMail(action, email, userName, verificationCode, url) {
             </html>
         `;
     } else if (action === 'resetPass') {
+        subject = 'In response to your password reset request:'
         emailBody = `
             <html>
                 <head></head>
@@ -57,7 +64,7 @@ function sendMail(action, email, userName, verificationCode, url) {
                         </p>
                         <br />
                         <p>Thank you.</p>
-                        <p>&copy;ChatterboxSM</p>
+                        <p>Admin at &copy;ChatterboxSM</p>
                     </div>
                 </body>
             </html>
@@ -78,7 +85,7 @@ function sendMail(action, email, userName, verificationCode, url) {
         var mailOptions = {
             from: 'donotreply@chatterboxsm.com',
             to: email, 
-            subject: 'Please verify your ChatterboxSM account.',
+            subject: subject,
             html: emailBody
         };
         
