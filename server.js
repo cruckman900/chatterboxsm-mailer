@@ -58,7 +58,7 @@ function sendMail(action, email, userName, verificationCode, link) {
             </html>
         `;
     } else if (action === 'resetPass') {
-        subject = 'In response to your password reset request:'
+        subject = 'In response to your ChatterboxSM password reset request:'
         emailBody = `
             <html>
                 <head></head>
