@@ -6,7 +6,12 @@ var url = require('url');
 var nodemailer = require('nodemailer');
 
 var server = http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
+    const headers = {        
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Content-Type": "text/plain"
+    }
+    res.writeHead(200, headers);
 
     var q = url.parse(req.url, true).query;
 
@@ -41,19 +46,19 @@ function sendMail(action, email, userName, verificationCode, link) {
             <html>
                 <head></head>
                 <body style='background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
-                    <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(33, 33, 33)'>
+                    <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(0, 0, 0)'>
                         <h1 style='color: rgb(255, 69, 0); font-weight: bold;'>ChatterboxSM</h1>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>
                             Please use the verification code below to 
-                            verify your user account on chatterboxsm.com
+                            verify your user account on <a style='color: rgb(255, 120, 0); font-weight: bold;' href='https://chatterboxsm.com'>ChatterboxSM</a>
                         </p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold; text-align: center;'>
-                            <code style='color: rgb(255, 120, 0); font-weight: bold;'>${verificationCode}</code>
+                            <code style='color: rgb(255, 120, 0); font-weight: bold; font-size: 16pt'>${verificationCode}</code>
                         </p>
                         <br />
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Thank you.</p>
-                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>&copy;ChatterboxSM</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>CRUCKMAN @ &copy;ChatterboxSM</p>
                     </div>
                 </body>
             </html>
@@ -64,7 +69,7 @@ function sendMail(action, email, userName, verificationCode, link) {
             <html>
                 <head></head>
                 <body style='background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
-                    <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(33, 33, 33);'>
+                    <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(0, 0, 0);'>
                     <h1 style='color: rgb(255, 69, 0); font-weight: bold;'>ChatterboxSM</h1>
                     <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>
@@ -75,7 +80,7 @@ function sendMail(action, email, userName, verificationCode, link) {
                         </p>
                         <br />
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Thank you.</p>
-                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>&copy;ChatterboxSM</p>
+                        <p style='color: rgb(255, 69, 0); font-weight: bold;'>CRUCKMAN @ &copy;ChatterboxSM</p>
                     </div>
                 </body>
             </html>
@@ -94,7 +99,7 @@ function sendMail(action, email, userName, verificationCode, link) {
         });
     
         var mailOptions = {
-            from: 'donotreply@chatterboxsm.com',
+            from: 'ChatterboxSM <donotreply@chatterboxsm.com>',
             to: email, 
             subject: subject,
             html: emailBody
@@ -110,4 +115,4 @@ function sendMail(action, email, userName, verificationCode, link) {
     }
 }
 
-server.listen();
+server.listen(80);
