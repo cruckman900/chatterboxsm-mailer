@@ -32,7 +32,7 @@ var server = http.createServer(function (req, res) {
 
     sendMail(action, email, userName, verificationCode, link);
 
-    res.write('I love you, Alexa!!');
+    res.write(`${Date.now()}: ${action} email send to ${userName} at ${email}.`);
     res.end();
 });
 
@@ -45,7 +45,7 @@ function sendMail(action, email, userName, verificationCode, link) {
         emailBody = `
             <html>
                 <head></head>
-                <body style='background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
+                <body style='border-radius: 12px; background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
                     <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(0, 0, 0)'>
                         <h1 style='color: rgb(255, 69, 0); font-weight: bold;'>ChatterboxSM</h1>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
@@ -68,7 +68,7 @@ function sendMail(action, email, userName, verificationCode, link) {
         emailBody = `
             <html>
                 <head></head>
-                <body style='background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
+                <body style='border-radius: 12px; background: linear-gradient(180deg, #000000, #630000 80%, #000000); max-height: 400px; max-width: 600px;'>
                     <div style='margin: 0 1rem; padding: 1rem; border-radius: 12px; background: rgb(0, 0, 0);'>
                     <h1 style='color: rgb(255, 69, 0); font-weight: bold;'>ChatterboxSM</h1>
                     <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
@@ -99,7 +99,7 @@ function sendMail(action, email, userName, verificationCode, link) {
         });
     
         var mailOptions = {
-            from: 'ChatterboxSM <donotreply@chatterboxsm.com>',
+            from: process.env.emailFrom,
             to: email, 
             subject: subject,
             html: emailBody
@@ -110,9 +110,14 @@ function sendMail(action, email, userName, verificationCode, link) {
                 console.log(error);
             } else {
                 console.log('Email sent: ' + info.response);
+                transporter.close();
             }
         });
     }
 }
 
-server.listen(80);
+// server.listen(80, () => {
+//     console.log(`server running`);
+// });
+
+server.listen();
