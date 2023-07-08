@@ -20,7 +20,7 @@ var server = http.createServer(function (req, res) {
     let userName = q.un;
 
     let verificationCode = null;
-    let link = null;
+    let link = process.env.RESET_PASS_LINK;
 
     if (q.vc) {
         verificationCode = q.vc;
@@ -89,17 +89,17 @@ function sendMail(action, email, userName, verificationCode, link) {
 
     if ( action !== null && email !== null ) {
         let transporter = nodemailer.createTransport({
-            host: process.env.host,
-            port: process.env.port,
+            host: process.env.HOST,
+            port: process.env.PORT,
             secure: true,
             auth: {
-                user: process.env.emailUser,
-                pass: process.env.emailPass
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
     
         var mailOptions = {
-            from: process.env.emailFrom,
+            from: process.env.EMAIL_FROM,
             to: email, 
             subject: subject,
             html: emailBody
