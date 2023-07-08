@@ -51,7 +51,7 @@ function sendMail(action, email, userName, verificationCode, link) {
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Hello ${userName}</p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>
                             Please use the verification code below to 
-                            verify your user account on <a style='color: rgb(255, 120, 0); font-weight: bold;' href='https://chatterboxsm.com'>ChatterboxSM</a>
+                            verify your user account on <a style='color: rgb(255, 120, 0); font-weight: bold;' href='${process.env.SITE_URL}'>ChatterboxSM</a>
                         </p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold; text-align: center;'>
                             <code style='color: rgb(255, 120, 0); font-weight: bold; font-size: 16pt'>${verificationCode}</code>
@@ -76,7 +76,7 @@ function sendMail(action, email, userName, verificationCode, link) {
                             Please use the following link to reset your password.
                         </p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;; text-align: center;'>
-                            <code><a style='color: rgb(255, 120, 0); font-weight: bold;' href='https://${link}?un=${userName}'>Password Reset</a></code>
+                            <code><a style='color: rgb(255, 120, 0); font-weight: bold;' href='https://${process.env.SITE_URL}/PasswordReset?un=${userName}'>Password Reset</a></code>
                         </p>
                         <br />
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Thank you.</p>
