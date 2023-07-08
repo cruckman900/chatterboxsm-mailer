@@ -76,7 +76,7 @@ function sendMail(action, email, userName, verificationCode, link) {
                             Please use the following link to reset your password.
                         </p>
                         <p style='color: rgb(255, 69, 0); font-weight: bold;; text-align: center;'>
-                            <code><a style='color: rgb(255, 120, 0); font-weight: bold;' href='${process.env.SITE_URL}/PasswordReset?un=${userName}'>Password Reset</a></code>
+                            <code><a style='color: rgb(255, 120, 0); font-weight: bold; font-size: 16pt' href='${process.env.SITE_URL}/PasswordReset?un=${userName}'>Password Reset</a></code>
                         </p>
                         <br />
                         <p style='color: rgb(255, 69, 0); font-weight: bold;'>Thank you.</p>
