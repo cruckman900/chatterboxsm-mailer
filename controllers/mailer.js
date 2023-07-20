@@ -1,4 +1,5 @@
 require('dotenv').config({ debug: false });
+
 const nodemailer = require('nodemailer');
 const { pugEngine } = require('nodemailer-pug-engine');
 
