@@ -47,6 +47,11 @@ function sendMail(email, subject, template, context) {
         from: process.env.EMAIL_FROM,
         to: email,
         subject: subject,
+        attachments: [{
+            filename: 'logo.png',
+            path: __dirname + '/../views/layouts/logo.png',
+            cid: 'logo'
+        }],
         template: template,
         ctx: context
     };

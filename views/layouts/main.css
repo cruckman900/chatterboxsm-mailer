@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Kochire';
+    src: url(KochireRegularl.otf);
+  }  
+
 .body {
     max-width: 600px;
     max-height: 400px;
@@ -15,6 +20,18 @@
 h1, p {
     font-weight: bold;
     color: rgb(255, 69, 0);
+}
+
+.topText {
+    font-family: 'Kochire';
+}
+
+.logo {
+    position: relative;
+    top: 1rem;
+    margin-left: .25rem;
+    height: 2.7rem;
+    width: 2.8rem;
 }
 
 a, code {
