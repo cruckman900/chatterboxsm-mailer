@@ -1,0 +1,31 @@
+body {
+    max-width: 600px;
+    max-height: 400px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #000000, #630000 80%, #000000);
+}
+
+div {
+    margin: 0 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #000000;
+}
+
+h1, p {
+    font-weight: bold;
+    color: rgb(255, 69, 0);
+}
+
+a, code {
+    font-weight: bold;
+    color: rgb(255, 120, 0);
+}
+
+.center {
+    text-align: center;
+}
+
+.large {
+    font-size: 16pt;
+}
