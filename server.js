@@ -1,7 +1,6 @@
 require('dotenv').config({ debug: false });
 
 const url = require('url');
-const path = require('path');
 const express = require('express');
 
 const app = express();
@@ -18,8 +17,6 @@ app.set('view engine', 'pug');
 const PORT = process.env.PORT || 8000;
 
 const mainController = require('./controllers/mailer');
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/mailer', (req, res) => {
   let q = url.parse(req.url, true).query;
