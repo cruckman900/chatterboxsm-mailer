@@ -12,7 +12,7 @@ function sendVerifyUserEmail(email, username, verificationCode) {
         verificationCode: verificationCode
     }
 
-    sendMail(email, username, subject, template, context);
+    sendMail(email, subject, template, context);
 }
 
 function sendForgotPasswordEmail(email, username) {
