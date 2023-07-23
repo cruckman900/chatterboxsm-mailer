@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Kochire';
     src: url(KochireRegularl.otf);
-  }  
+}
 
 .body {
     max-width: 600px;
@@ -11,6 +11,9 @@
 }
 
 .div {
+    letter-spacing: .065rem;
+    font-size: 1rem;
+    font-weight: bold;
     margin: 0 1rem;
     padding: 1rem;
     border-radius: 12px;
@@ -26,12 +29,15 @@ h1, p {
     font-family: 'Kochire';
 }
 
-.logo {
+.logoSpan {
     position: relative;
     top: 1rem;
-    margin-left: .25rem;
-    height: 2.7rem;
-    width: 2.8rem;
+    left: .25rem;
+}
+
+.logo {
+    height: 1.8rem;
+    width: 1.9rem;
 }
 
 a, code {
