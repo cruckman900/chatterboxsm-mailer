@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
 
 app.set('view engine', 'pug');
 
-const PORT = 4000 // process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 const mainController = require('./controllers/mailer');
 
