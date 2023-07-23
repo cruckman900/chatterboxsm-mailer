@@ -1,10 +1,5 @@
-@font-face {
-    font-family: 'Kochire';
-    src: url(KochireRegularl.otf);
-}
-
 .body {
-    max-width: 600px;
+    max-width: 100%;
     max-height: 400px;
     border-radius: 12px;
     background: linear-gradient(180deg, #000000, #630000 80%, #000000);
@@ -14,7 +9,7 @@
     letter-spacing: .065rem;
     font-size: 1rem;
     font-weight: bold;
-    margin: 0 1rem;
+    margin: 1rem 2rem;
     padding: 1rem;
     border-radius: 12px;
     background: #000000;
@@ -29,26 +24,12 @@ h1, p {
     font-family: 'Kochire';
 }
 
-.logoSpan {
-    position: relative;
-    top: 1rem;
-    left: .25rem;
-}
-
-.logo {
-    height: 2rem;
-    width: 2rem;
-}
-
-a, code {
-    font-weight: bold;
-    color: rgb(255, 120, 0);
-}
-
 .center {
     text-align: center;
 }
 
 .large {
-    font-size: 16pt;
+    font-weight: bold;
+    color: rgb(255, 120, 0);
+    font-size: 2rem;
 }
